@@ -4,7 +4,7 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+    @books = Book.where(["user_id = :u", { u: current_user.id }])
   end
 
   # GET /books/1 or /books/1.json
@@ -23,7 +23,8 @@ class BooksController < ApplicationController
   # POST /books or /books.json
   def create
     @book = Book.new(book_params)
-
+    @book.user_id = current_user.id
+    
     respond_to do |format|
       if @book.save
         format.html { redirect_to book_url(@book), notice: "Book was successfully created." }
@@ -37,6 +38,7 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1 or /books/1.json
   def update
+    @book.user_id = current_user.id
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to book_url(@book), notice: "Book was successfully updated." }
@@ -62,6 +64,9 @@ class BooksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_book
       @book = Book.find(params[:id])
+      if @book.user_id != current_user.id
+        redirect_to books_path, notice: "Not Authorized"
+      end
     end
 
     # Only allow a list of trusted parameters through.
