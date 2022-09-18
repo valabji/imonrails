@@ -1,4 +1,11 @@
-# README
+# Demo Project
+
+## Run it on your own risk 😂
+`git clone https://github.com/valabji/imonrails`
+
+`rails db:migrate`
+
+`rails s`
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
