@@ -14,9 +14,9 @@
   <% end %>
   <div style="max-width:400px;padding:20px;border:solid black">
 
-    <%= form.text_field :book_name,class:"form-control",placeholder: :book_name %>
+    <%= form.text_field :book_name, required: true,class:"form-control",placeholder: :book_name %>
     <br/>
-    <%= form.text_field :author,class:"form-control",placeholder: :author  %>
+    <%= form.text_field :author, required: true,class:"form-control",placeholder: :author  %>
     <br/>
 
     <%= form.submit class:"btn btn-secondary" %>

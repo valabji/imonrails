@@ -8,6 +8,6 @@
 <td>
   <%= link_to "View", book,class:"btn btn-primary" %> | 
   <%= link_to "Edit", edit_book_path(book),class:"btn btn-warning" %> |
-  <%= button_to "Destroy", book, method: :delete,class:"d-flex btn btn-danger",form: {style: 'display:inline-block;'} %>
+  <%= button_to "Destroy", book,method: :delete,class:"d-flex btn btn-danger",form: {style: 'display:inline-block;',data: { turbo_confirm: "Are you sure?" } } %>
 </td>
 </td>

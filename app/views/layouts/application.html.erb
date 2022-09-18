@@ -20,12 +20,15 @@
       <% flash.each do |type, msg| %>
       <br/>
         <% if type == "notice" %>
-          <div class="alert alert-primary alert-dismissible fade show" role="alert">
+          <div class="d-flex alert alert-primary alert-dismissible fade show" role="alert">
         <% else %>
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <div class="d-flex alert alert-danger alert-dismissible fade show" role="alert">
         <% end %>
           <%# <strong><%= type ></strong> %>
-          <%= msg %>
+          <span style="flex:1" ><%= msg %></span>
+          <button type="button" class="btn close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
       </div>
       <% end %>
       

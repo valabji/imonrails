@@ -1,6 +1,7 @@
+<% if @books.size > 0%>
 <h1>Books</h1>
 
-<table id="books" class="table table-striped table-light table-hover table-bordered">
+<table id="books" style="background-color:#fff;border:solid;border-spacing:2px" class="table table-striped table-light table-hover table-bordered">
 <thead class="table-dark">
 <tr>
 <th>
@@ -17,5 +18,8 @@ Author
     <%= render 'bookrow', book:book %>
   <% end %>
 </table>
+<% else %>
+<h1>You have no Books yet</h1>
 
-<%= link_to "New book", new_book_path,class:"btn btn-secondary" %>
+<% end %>
+<%= link_to "Add new book", new_book_path,class:"btn btn-secondary" %>
