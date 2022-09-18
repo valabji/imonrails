@@ -6,20 +6,38 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to 'Books', books_path,class:"nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to 'Add Book', new_book_path,class:"nav-link" %>
         </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to 'About', home_about_path,class:"nav-link" %>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      
+  <div class="d-flex navbar-nav">
+  <% if user_signed_in? %>
+    <ul class="navbar-nav" style="direction:rtl">
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to 'Edit Profile', edit_user_registration_path,class:"dropdown-item" %>
+            <%= button_to 'Log Out', destroy_user_session_path,method: :delete,class:"dropdown-item" %>
+        </div>
+      </li>   
+    </ul>
+  <% else %>
+    <%= link_to 'Sign In', new_user_session_path,class:"nav-link" %>
+    <%= link_to 'Sign up', new_user_registration_path,class:"nav-link" %>
+  <% end %>
+
+  </div>
     </div>
   </div>
 </nav>

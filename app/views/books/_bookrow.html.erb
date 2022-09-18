@@ -1,0 +1,13 @@
+<tr id="<%= dom_id book %>">
+<td>
+    <%= book.book_name %>
+</td>
+<td>
+    <%= book.author %>
+</td>
+<td>
+  <%= link_to "View", book,class:"btn btn-primary" %> | 
+  <%= link_to "Edit", edit_book_path(book),class:"btn btn-warning" %> |
+  <%= button_to "Destroy", book, method: :delete,class:"d-flex btn btn-danger",form: {style: 'display:inline-block;'} %>
+</td>
+</td>

@@ -1,14 +1,21 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Books</h1>
 
-<div id="books">
+<table id="books" class="table table-striped table-light table-hover table-bordered">
+<thead class="table-dark">
+<tr>
+<th>
+Book name
+</th>
+<th>
+Author
+</th>
+<th>
+</th>
+</tr>
+</thead>
   <% @books.each do |book| %>
-    <%= render book %>
-    <p>
-      <%= link_to "Show this book", book %>
-    </p>
+    <%= render 'bookrow', book:book %>
   <% end %>
-</div>
+</table>
 
-<%= link_to "New book", new_book_path %>
+<%= link_to "New book", new_book_path,class:"btn btn-secondary" %>
