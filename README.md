@@ -3,6 +3,8 @@
 ## Run it on your own risk 😂
 `git clone https://github.com/valabji/imonrails`
 
+`bundle install` or `bundle install --without production`
+
 `rails db:migrate`
 
 `rails s`
